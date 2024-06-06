@@ -2,19 +2,34 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CoolNotice Card</title>
+    <title>Notification Card</title>
   </head>
   <body>
-    <div class="noti">
-      <div class="notiglow"></div>
-      <div class="notiborderglow"></div>
+    <div class="noteCard">
+      <div class="notificationglow"></div>
+      <div class="notificationborderglow"></div>
 
-      <div class="notibody">
-        <div class="notititle" id="noticeTitle">Notice</div>
-        Vehicle respawned succesfully.
+      <div class="notebody">
+        <div class="notetitle" id="noticeTitle">Notice</div>
+        User succesfully added!
       </div>
+      <i class="fa-solid fa-xmark" id="closeButton"></i>
+    </div>
+    <div class="noteCardRed">
+      <div class="notificationglowRed"></div>
+      <div class="notificationborderglowRed"></div>
+
+      <div class="notebodyRed">
+        <div class="notetitleRed" id="noticeTitleRed">Notice</div>
+        User succesfully removed!
+      </div>
+      <i class="fa-solid fa-xmark" id="closeButtonRed"></i>
     </div>
   </body>
 </html>

@@ -2,9 +2,9 @@
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   --gradient: linear-gradient(to bottom, #2eff74, #44ebb3, #adff61);
+  --gradientRed: linear-gradient(to bottom, #ff352e, #eb8144, #ff6183);
   --color: #adff61;
 }
-
 *,
 *:before,
 *:after {
@@ -12,7 +12,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   height: 100vh;
@@ -20,11 +19,11 @@ body {
   background: #0c0c0b;
   overflow: hidden;
   display: grid;
+  gap: 1rem;
   place-content: center;
   cursor: default;
 }
-
-.noti {
+.noteCard {
   display: flex;
   flex-direction: column;
   isolation: isolate;
@@ -34,8 +33,9 @@ body {
   background: #29292c;
   border-radius: 1rem;
   overflow: hidden;
+  cursor: pointer;
 }
-.noti::before {
+.noteCard::before {
   content: '';
   position: absolute;
   inset: 0.0625rem;
@@ -43,7 +43,7 @@ body {
   background: #18181b;
   z-index: 2;
 }
-.noti::after {
+.noteCard::after {
   content: '';
   position: absolute;
   width: 0.25rem;
@@ -53,11 +53,54 @@ body {
   transition: transform 300ms ease;
   z-index: 4;
 }
-.noti:hover::after {
+.noteCardRed:hover .notetitleRed {
   transform: translateX(0.15rem);
 }
-
-.nutititle {
+.noteCardRed:hover .notebodyRed {
+  transform: translateX(0.25rem);
+}
+.noteCardRed {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  position: relative;
+  width: 18rem;
+  height: 5rem;
+  background: #29292c;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+.noteCardRed::before {
+  content: '';
+  position: absolute;
+  inset: 0.0625rem;
+  border-radius: 0.9375rem;
+  background: #18181b;
+  z-index: 2;
+}
+.noteCardRed::after {
+  content: '';
+  position: absolute;
+  width: 0.25rem;
+  inset: 0.65rem auto 0.65rem 0.5rem;
+  border-radius: 0.125rem;
+  background: var(--gradientRed);
+  transition: transform 300ms ease;
+  z-index: 4;
+}
+.noteCardRed:hover::after {
+  transform: translateX(0.15rem);
+}
+.notetitle {
+  color: var(--color);
+  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+.notetitleRed {
   color: var(--color);
   padding: 0.65rem 0.25rem 0.4rem 1.25rem;
   font-weight: 600;
@@ -73,20 +116,40 @@ body {
   transition: transform 300ms ease;
   z-index: 5;
 }
-.noti:hover .nutititle {
+#noticeTitleRed {
+  color: crimson;
+  padding: 0.65rem 0.25rem 0.4rem 0.1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+.noteCard:hover .notetitle {
   transform: translateX(0.15rem);
 }
-.notibody {
+.noteCard:hover .notetitleRed {
+  transform: translateX(0.15rem);
+}
+.notebody {
   color: #99999d;
   padding: 0 1.25rem;
   transition: transform 300ms ease;
   z-index: 5;
 }
-.noti:hover .notibody {
+.notebodyRed {
+  color: #99999d;
+  padding: 0 1.25rem;
+  transition: transform 300ms ease;
+  z-index: 5;
+}
+.noteCard:hover .notebody {
   transform: translateX(0.25rem);
 }
-.notiglow,
-.notiborderglow {
+.noteCard:hover .notebodyRed {
+  transform: translateX(0.25rem);
+}
+.notificationglow,
+.notificationborderglow {
   position: absolute;
   width: 20rem;
   height: 20rem;
@@ -95,15 +158,51 @@ body {
   opacity: 0;
   transition: opacity 300ms ease;
 }
-.notiglow {
+.notificationglow {
   z-index: 3;
 }
-.notiborderglow {
+.notificationborderglow {
   z-index: 1;
 }
-.noti:hover .notiglow {
+.noteCard:hover .notificationglow {
   opacity: 0.1;
 }
-.noti:hover .notiborderglow {
+.noteCard:hover .notificationborderglow {
   opacity: 0.1;
+}
+.notificationglowRed,
+.notificationborderglowRed {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle closest-side at center, white, transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.notificationglowRed {
+  z-index: 3;
+}
+.notificationborderglowRed {
+  z-index: 1;
+}
+.noteCardRed:hover .notificationglowRed {
+  opacity: 0.1;
+}
+.noteCardRed:hover .notificationborderglowRed {
+  opacity: 0.1;
+}
+#closeButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  color: #adff61;
+}
+#closeButtonRed {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  color: crimson;
 }
